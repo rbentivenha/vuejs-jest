@@ -1,27 +1,29 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-card shaped>
-        <v-list-item>
-          <v-avatar
-            color="blue white--text"
-            height="80"
-            width="80"
-            class="title"
-            >LBB</v-avatar
-          >
+  <v-row justify="center">
+    <v-card max-width="400">
+      <v-list-item>
+        <v-list-item-avatar
+          color="blue white--text"
+          left
+          >{{initials}}
+        </v-list-item-avatar>
+        <v-list-item three-line>
           <v-list-item-content>
-            <v-card-text>
-              <v-card-title>{{ name }}</v-card-title>
-              <v-card-subtitle> {{ job }} </v-card-subtitle>
-              <v-row>{{ phone }} - {{ email }}</v-row>
-              <v-row>{{ end }}</v-row>
-            </v-card-text>
+            <v-list-item-title>{{ name }}</v-list-item-title>
+            <v-list-item-subtitle>
+              {{ job }}
+            </v-list-item-subtitle>
+            <v-list-item-subtitle>
+              {{ phone }} - {{ email }}
+            </v-list-item-subtitle>
+            <v-list-item-subtitle>
+              {{ end }}
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-      </v-card>
-    </v-row>
-  </v-container>
+      </v-list-item>
+    </v-card>
+  </v-row>
 </template>
 
 <script>
@@ -51,6 +53,11 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    initials() {
+      return this.name.charAt(0);
+    }
   }
 }
 </script>
