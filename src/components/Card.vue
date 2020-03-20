@@ -11,9 +11,6 @@
           <v-list-item-content>
             <v-list-item-title>{{ name }}</v-list-item-title>
             <v-list-item-subtitle>
-              {{ job }}
-            </v-list-item-subtitle>
-            <v-list-item-subtitle>
               {{ phone }} - {{ email }}
             </v-list-item-subtitle>
             <v-list-item-subtitle>
@@ -33,10 +30,6 @@ export default {
     name: {
       type: String,
       default: 'Nome'
-    },
-    job: {
-      type: String,
-      default: 'Profissão'
     },
     phone: {
       type: String,

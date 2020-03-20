@@ -1,22 +1,43 @@
 <template>
   <v-container fluid>
-    <v-row>
+    <v-row :cols="12" xs="3">
       <Search />
     </v-row>
-    <v-row>
-      <Card />
-    </v-row>
+    <v-list three-line>
+      <template v-for="(item, index) in contacts">
+        <v-row :key="index" class="mb-4">
+          <Card
+            :key="index"
+            :name="item.name.first"
+            :phone="item.phone"
+            :email="item.email"
+            :end="item.location.street.name"
+          />
+        </v-row>
+      </template>
+    </v-list>
   </v-container>
 </template>
 
 <script>
 import Card from '../components/Card'
 import Search from '../components/Search'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
     Card,
     Search
+  },
+  async mounted () {
+    await this.getRandomUser()
+    await this.getRandomUsers()
+  },
+  computed: {
+    ...mapGetters(['contact', 'contacts'])
+  },
+  methods: {
+    ...mapActions(['getRandomUser', 'getRandomUsers'])
   }
 }
 </script>
