@@ -4,7 +4,7 @@
       <Search />
     </v-row>
     <v-list three-line>
-      <template v-for="(item, index) in contacts">
+      <template v-for="(item, index) in filteredContent">
         <v-row :key="index" class="mb-4">
           <Card
             :key="index"
@@ -34,7 +34,7 @@ export default {
     await this.getRandomUsers()
   },
   computed: {
-    ...mapGetters(['contact', 'contacts'])
+    ...mapGetters(['contact', 'filteredContent'])
   },
   methods: {
     ...mapActions(['getRandomUser', 'getRandomUsers'])
