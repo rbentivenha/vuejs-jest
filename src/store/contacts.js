@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Services from '../services/index';
 
 export default {
     state: {
@@ -21,11 +21,11 @@ export default {
     },
     actions: {
         async getRandomUser({ commit }) {
-            const users = await axios.get('https://randomuser.me/api/?inc=location,name,phone,email,picture');
+            const users = await Services.getRamdomUser();
             commit('setContactData', users.data.results[0]);
         },
         async getRandomUsers({ commit }) {
-            const users = await axios.get('https://randomuser.me/api/?results=25&nat=br&inc=location,name,phone,email,picture');
+            const users = await Services.getRandomUsers();
             commit('setManyContacts', users.data.results);
         }
     },
