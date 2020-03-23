@@ -1,8 +1,6 @@
 <template>
-  <v-container fluid>
-    <v-row :cols="12" xs="3">
-      <Search />
-    </v-row>
+  <v-container>
+    <Search />
     <v-list three-line>
       <template v-for="(item, index) in filteredContent">
         <v-row :key="index" class="mb-4">
