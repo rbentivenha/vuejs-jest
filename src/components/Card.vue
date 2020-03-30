@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'MyFirstComponent',
+  name: 'Card',
   props: {
     name: {
       type: String,

@@ -28,7 +28,6 @@ export default {
             } else {
                 state.filteredContent = state.contacts;
             }
-            console.log("setSearchFilter -> state.filteredContent", state.filteredContent);
         }
     },
     actions: {
